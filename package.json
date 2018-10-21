@@ -1,0 +1,33 @@
+{
+  "name": "itvdn-landing",
+  "version": "1.0.0",
+  "description": "landing",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mksbnt/itvdn-landing.git"
+  },
+  "author": "mksbnt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mksbnt/itvdn-landing/issues"
+  },
+  "homepage": "https://github.com/mksbnt/itvdn-landing#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-v4": "^4.0.0-alpha.5",
+    "gulp.spritesmith": "^6.9.0"
+  },
+  "dependencies": {
+    "gulp-rimraf": "^0.2.2"
+  }
+}

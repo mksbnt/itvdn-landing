@@ -16,8 +16,9 @@
 
 * Убедится, что установлен gulp 4 версии.
 Если он не установлен, тогда ставим
+https://www.npmjs.com/package/gulp-v4
 
-> npm install gulpjs/gulp.cli#4.0 -g
+> npm i gulp-v4
 
 ## Инструкция для старта проекта:
 
