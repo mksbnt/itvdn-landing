@@ -5,6 +5,8 @@ var sass = require('gulp-sass'); // https://www.npmjs.com/package/gulp-sass
 var spritesmith = require('gulp.spritesmith'); // https://www.npmjs.com/package/gulp.spritesmith
 var rimraf = require('rimraf'); // https://www.npmjs.com/package/gulp-rimraf
 var rename = require("gulp-rename"); // https://www.npmjs.com/package/gulp-rename
+const autoprefixer = require('gulp-autoprefixer'); // https://www.npmjs.com/package/gulp-autoprefixer
+var sourcemaps = require('gulp-sourcemaps'); // https://www.npmjs.com/package/gulp-sourcemaps
 
 // Static server
 
@@ -34,10 +36,16 @@ sass.compiler = require('node-sass');
 
 gulp.task('styles:compile', function () {
     return gulp.src('source/styles/main.scss')
+        .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'compressed'
         }).on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 3 versions'],
+            cascade: false
+        }))
         .pipe(rename('main.min.css'))
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('build/css'));
 });
 
@@ -74,9 +82,16 @@ gulp.task('copy:images', function () {
         .pipe(gulp.dest('build/images'));
 });
 
+// Copy JavaScript
+
+gulp.task('copy:js', function () {
+    return gulp.src('./source/js/**/*.*')
+        .pipe(gulp.dest('build/js'));
+});
+
 // Copy
 
-gulp.task('copy', gulp.parallel('copy:fonts', 'copy:images'));
+gulp.task('copy', gulp.parallel('copy:js', 'copy:fonts', 'copy:images'));
 
 // Watchers
 
@@ -90,3 +105,4 @@ gulp.task('default', gulp.series(
     gulp.parallel('templates:compile', 'styles:compile', 'sprite', 'copy'),
     gulp.parallel('watch', 'server')
 ));
+
