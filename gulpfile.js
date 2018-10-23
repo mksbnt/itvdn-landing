@@ -23,12 +23,20 @@ gulp.task('server', function () {
 // Pug compile
 
 gulp.task('templates:compile', function buildHTML() {
-    return gulp.src('source/templates/index.pug')
+    return gulp.src('source/templates/*.pug')
         .pipe(pug({
             pretty: true
         }))
         .pipe(gulp.dest('build'))
 });
+
+// gulp.task('templates:compile', function buildHTML() {
+//   return gulp.src('source/templates/about.pug')
+//       .pipe(pug({
+//           pretty: true
+//       }))
+//       .pipe(gulp.dest('build'))
+// });
 
 // styles compile
 
