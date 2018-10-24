@@ -1,6 +1,5 @@
 @import 'config';
 @import 'menu';
-@import 'mobile';
 
 *
 {
@@ -126,3 +125,4 @@ main{
   height: 60px;
 }
 
+@import 'mobile';
