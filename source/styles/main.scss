@@ -19,6 +19,12 @@ body
 
 // Headings
 
+.lg-heading
+{
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+
 h1, h2, h3
 {
     margin: 0;
@@ -70,6 +76,7 @@ main{
             }
         }
     }
+    
     &#home{
         overflow: hidden;
         h1{
@@ -190,10 +197,14 @@ main{
 
 #main-footer{
   text-align: center;
-  padding: 1rem;
+
   background: darken($primary-color, 10);
   color: set-text-color($primary-color);
   height: 60px;
+
+  p{
+    padding-top: 18px;
+  }
 }
 
 @import 'mobile';
