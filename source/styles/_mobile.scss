@@ -1,90 +1,116 @@
 // widescreens
-@include mediaXL{
-  .projects{
+@include mediaXL {
+  .projects {
     grid-template-columns: repeat(4, 1fr);
   }
 
 }
 
 // desktops & laptops
-@include mediaLg{
-  .projects{
+@include mediaLg {
+  .projects {
     grid-template-columns: repeat(3, 1fr);
   }
-  
+
 }
 
 // tablets & small laptops
-@include mediaMd{
-  main{
+@include mediaMd {
+  main {
     align-items: center;
     text-align: center;
 
-    .lg-heading{
+    .lg-heading {
       line-height: 1;
       margin-bottom: 1rem;
+      // flex-direction: row;
     }
   }
 
-  main#home h1{
-    margin-top: 10vh;
-  }
+  // main#home h1{
+  //   margin-top: 20vh;
+  // }
 
   .text-secondary {
     margin-left: 0;
   }
 
   ul.menu-nav,
-  div.menu-branding{
+  div.menu-branding {
     float: none;
     width: 100%;
     min-height: 0;
 
-    &.show{
+    &.show {
       transform: translate3d(0, 0, 0);
     }
   }
 
-  .menu-nav{
+  .menu-nav {
     height: 75vh;
     transform: translate3d(-100%, 0, 0);
     font-size: 24px;
   }
 
-  .menu-branding{
+  .menu-branding {
     height: 25vh;
     transform: translate3d(100%, 0, 0);
 
-    .portrait{
+    .portrait {
       background: url('../images/portrait_small.jpg');
+      background-position-y: center;
       width: 150px;
       height: 150px;
     }
   }
 
-  .about-info{
+  .about-info {
     grid-template-areas:
-    'bioimage'
-    'bio'
-    'job1'
-    'job2'
-    'job3';
+      'bioimage'
+      'bio'
+      'job1'
+      'job2'
+      'job3';
 
     grid-template-columns: 1fr;
   }
 
-  .projects{
+  .projects {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 // smartphones
-@include mediaSm{
-  main#home h1{
+@include mediaSm {
+  main {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  main#home h1 {
     margin-top: 10vh;
   }
 
-  .projects{
+  h1.lg-heading,
+  h2.lg-heading,
+  h3.lg-heading {
+    font-size: 4rem;
+    /* text-align: center; */
+  }
+
+  .lg-heading {
+    flex-direction: column;
+  }
+
+  .projects {
     grid-template-columns: (1fr);
   }
+
+  .menu-branding .portrait {
+    background: url(../images/portrait_small.jpg);
+    width: 130px;
+    background-size: cover;
+    background-position: 5px;
+    height: 130px;
+}
 }

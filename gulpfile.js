@@ -46,6 +46,7 @@ gulp.task('styles:compile', function () {
     return gulp.src('source/styles/main.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({
+            includePaths: require('node-normalize-scss').includePaths, // https://www.npmjs.com/package/node-normalize-scss
             outputStyle: 'compressed'
         }).on('error', sass.logError))
         .pipe(autoprefixer({
