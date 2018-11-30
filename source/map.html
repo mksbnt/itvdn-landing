@@ -1,38 +1,27 @@
-// select DOM items
-const menuBtn = document.querySelector('.menu-btn');
-const menu = document.querySelector('.menu');
-const menuNav = document.querySelector('.menu-nav');
-const menuBranding = document.querySelector('.menu-branding');
-const navItems = document.querySelectorAll('.nav-item');
-const home = document.querySelector('main');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"
+  type="text/javascript" charset="utf-8"></script>
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
+  type="text/javascript" charset="utf-8"></script>
+  
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" 
+      type="text/javascript" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" 
+      href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
 
-// set initial state of menu
+  <title>HERE.COM API</title>
+</head>
+<body>
+    <div style="width: 100%; height: 80vh" id="mapContainer"></div>
 
-let showMenu = false;
 
-menuBtn.addEventListener('click', toogleMenu);
-
-function toogleMenu(){
-  if(!showMenu){
-    menuBtn.classList.add('close');
-    menu.classList.add('show');
-    menuNav.classList.add('show');
-    menuBranding.classList.add('show');
-    navItems.forEach(item => item.classList.add('show'));
-    home.classList.add('hide');
-    // set menu state
-    showMenu = true;
-  } else {
-    menuBtn.classList.remove('close');
-    menu.classList.remove('show');
-    menuNav.classList.remove('show');
-    menuBranding.classList.remove('show');
-    navItems.forEach(item => item.classList.remove('show'));
-    home.classList.remove('hide');
-    // set menu state
-    showMenu = false;
-  }
-}
+  <script>
 
 var platform = new H.service.Platform({
   'app_id': 'sLqzIh1A33CgWUs1VHjE',
@@ -72,7 +61,7 @@ var geocodingParams = {
 
 // Create an icon, an object holding the latitude and longitude, and a marker:
  // var icon = new H.map.Icon(svgMarkup),
- var icon = new H.map.Icon('../images/location-pointer.png'),
+ var icon = new H.map.Icon('location-pointer.png'),
   coords = {lat: 50.43576, lng: 30.33556},
   marker = new H.map.Marker(coords, {icon: icon});
 
@@ -105,6 +94,6 @@ var geocoder = platform.getGeocodingService();
 geocoder.geocode(geocodingParams, onResult, function(e) {
   alert(e);
 });
-
-
-
+  </script>
+</body>
+</html>
